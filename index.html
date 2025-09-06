@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title removed as requested -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/Creative clicks logo.jpeg">
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="index.html" class="brand" style="font-size:2rem;font-weight:700;color:#111;text-decoration:none;">Creative Clicks</a>
+        </div>
+        <nav class="header-center">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="photography.html">Photography</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <a href="book.html" class="book-btn">Book Now</a>
+        </div>
+    </header>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Creative Clicks</h1>
+                <p class="hero-subtitle">Capturing life's moments, one click at a time. We offer professional photography and videography services, and share our passion through engaging workshops.</p>
+                <div class="hero-actions">
+                    <a href="#book" class="hero-btn dark">Book an Event</a>
+                    <a href="#workshops" class="hero-btn light">Join a Workshop</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <p>Creative Clicks is passionate about capturing moments and teaching the art of photography. We host events and workshops to inspire young talent and offer professional photography and videography services for all occasions.</p>
+        </section>
+
+        <!-- Team -->
+        <section id="team" class="section">
+            <h2>Meet the Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="team1.jpg" alt="Team Member 1">
+                    <h3>Alex Carter</h3>
+                    <p>Lead Photographer</p>
+                </div>
+                <div class="team-member">
+                    <img src="team2.jpg" alt="Team Member 2">
+                    <h3>Jamie Lee</h3>
+                    <p>Workshop Coordinator</p>
+                </div>
+                <div class="team-member">
+                    <img src="team3.jpg" alt="Team Member 3">
+                    <h3>Sam Patel</h3>
+                    <p>Videographer</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work -->
+        <section id="work" class="section">
+            <h2>My Work</h2>
+            <div class="work-links">
+                <a href="photography.html" class="cta">View Photography Portfolio</a>
+                <a href="videos.html" class="cta">View Video Portfolio</a>
+            </div>
+        </section>
+
+        <!-- Workshops -->
+        <section id="workshops" class="section">
+            <h2>Workshops</h2>
+            <p>Join our 3-day online workshop for just $15 per student. We also host other workshops—prices may vary.</p>
+            <form id="workshopForm" action="https://formspree.io/f/meollazo" method="POST">
+                <label for="workshopType">Select Workshop:</label>
+                <select id="workshopType" name="Workshop Type" required>
+                    <option value="3-Day Workshop ($15)">3-Day Workshop ($15)</option>
+                    <option value="Advanced Workshop ($25)">Advanced Workshop ($25)</option>
+                    <option value="Photo Editing Workshop ($20)">Photo Editing Workshop ($20)</option>
+                </select>
+
+                <label for="studentName">Your Name:</label>
+                <input type="text" id="studentName" name="Name" required>
+
+                <label for="studentEmail">Email:</label>
+                <input type="email" id="studentEmail" name="Email" required>
+
+                <div id="workshopPrice">Price: $15</div>
+                <input type="hidden" name="Total Price" id="workshopTotalPrice" value="15">
+
+                <button type="submit" class="form-btn">Book Workshop</button>
+            </form>
+        </section>
+
+        <!-- Book Event -->
+        <section id="book" class="book-section">
+            <h1 class="book-title">Book Our Services</h1>
+            <p class="book-subtitle">Let's capture your special event. Fill out the form below to get a quote and check our availability.</p>
+            <div class="book-card">
+                <form id="bookingForm" action="https://formspree.io/f/xwpnnlpw" method="POST">
+                    <h2 class="form-title">Booking Details</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="clientName">Full Name</label>
+                            <input type="text" id="clientName" name="Name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="clientEmail">Email Address</label>
+                            <input type="email" id="clientEmail" name="Email" placeholder="you@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="clientPhone">Phone Number</label>
+                            <input type="tel" id="clientPhone" name="Phone" placeholder="(123) 456-7890">
+                        </div>
+                        <div class="form-group">
+                            <label for="eventType">Event Type</label>
+                            <select id="eventType" name="Event Type" required>
+                                <option value="" disabled selected>Select an event type</option>
+                                <option value="Wedding">Wedding</option>
+                                <option value="Corporate">Corporate Event</option>
+                                <option value="Portrait">Portrait Session</option>
+                                <option value="Family Photoshoot">Family Photoshoot</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventDate">Event Date</label>
+                            <input type="date" id="eventDate" name="Event Date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventLocation">Event Location</label>
+                            <input type="text" id="eventLocation" name="Location" placeholder="City, State" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="guestCount">Estimated Guests</label>
+                            <input type="number" id="guestCount" name="Guest Count" placeholder="e.g., 50">
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">Estimated Budget (USD)</label>
+                            <input type="text" id="budget" name="Budget" placeholder="e.g., $2,500">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventMessage">Message</label>
+                        <textarea id="eventMessage" name="Message" rows="5" placeholder="Tell us more about your event, including the services you're interested in (photography, videography, etc.)." required></textarea>
+                    </div>
+                    <button type="submit" class="form-btn">Send Booking Request</button>
+                </form>
+            </div>
+        </section>

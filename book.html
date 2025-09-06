@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Creative Clicks</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/Creative clicks logo.jpeg">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="index.html" class="brand" style="font-size:2rem;font-weight:700;color:#111;text-decoration:none;">Creative Clicks</a>
+        </div>
+        <nav class="header-center">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="photography.html">Photography</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="book-section">
+            <h1 class="book-title">Book Our Services</h1>
+            <p class="book-subtitle">Let's capture your special event. Fill out the form below to get a quote and check our availability.</p>
+            <div class="book-card">
+                <form id="bookingForm">
+                    <h2 class="form-title">Booking Details</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="clientName">Full Name</label>
+                            <input type="text" id="clientName" name="clientName" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="clientEmail">Email Address</label>
+                            <input type="email" id="clientEmail" name="clientEmail" placeholder="you@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventType">Event Type</label>
+                            <input type="text" id="eventType" name="eventType" placeholder="e.g., Wedding, Corporate Event" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventDate">Event Date</label>
+                            <input type="date" id="eventDate" name="eventDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Required</label>
+                            <select id="service" name="service" onchange="updateBookingPrice()" required>
+                                <option value="">Select a service</option>
+                                <option value="photography">Photography ($30/hr)</option>
+                                <option value="videography">Videography ($40-$45/hr)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="hours">Event Duration (Hours)</label>
+                            <input type="number" id="hours" name="hours" min="1" value="1" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="framing" class="framing-label">
+                            <input type="checkbox" id="framing" name="framing"> Add Framing ($5 extra)
+                        </label>
+                    </div>
+                    <div id="bookingPrice" class="form-price">Total: $30</div>
+                    <button type="submit" class="form-btn">Book Now</button>
+                    <!-- AJAX handles submission, no hidden subject needed -->
+                </form>
+                <div id="bookingMessage"></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Creative Clicks. All rights reserved.</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

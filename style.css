@@ -1,0 +1,64 @@
+/* === Responsive Styles for Mobile Devices === */
+/* These rules will apply on screens 768px wide or smaller (tablets and phones) */
+
+@media (max-width: 768px) {
+    /* --- General Adjustments --- */
+    .container {
+        padding: 0 20px; /* Add some side padding on mobile */
+    }
+
+    section {
+        padding: 40px 0; /* Reduce top/bottom padding on sections */
+    }
+
+    /* --- Header & Navigation --- */
+    header .container {
+        flex-direction: column; /* Stack logo and nav vertically */
+        gap: 15px;
+    }
+
+    header nav ul {
+        flex-direction: column; /* Stack nav links vertically */
+        gap: 10px;
+        text-align: center;
+    }
+
+    /* --- Hero Section --- */
+    .hero-content h1 {
+        font-size: 2.5rem; /* Make the main title slightly smaller */
+    }
+
+    .hero-content p {
+        font-size: 1rem; /* Adjust paragraph font size */
+    }
+
+    /* --- Grid Layouts --- */
+    /* This will stack grid items into a single column on mobile */
+    .services-grid,
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* --- Workshop & Booking Cards --- */
+    .workshop-card,
+    .book-card {
+        padding: 20px; /* Reduce padding inside cards */
+    }
+
+    .workshop-card form {
+        flex-direction: column; /* Stack workshop form elements */
+        align-items: stretch;
+    }
+
+    /* --- Booking Form --- */
+    .form-grid {
+        grid-template-columns: 1fr; /* Make the form a single column */
+    }
+
+    /* --- Footer --- */
+    .footer-content {
+        flex-direction: column; /* Stack footer content */
+        text-align: center;
+        gap: 20px;
+    }
+}
