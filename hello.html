@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Creative Studio — Photography & Workshops</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#">Creative Studio</a>
+      <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#work">My Work</a>
+        <a href="#team">Team</a>
+        <a href="#workshop" class="cta">Sign Up</a>
+      </nav>
+      <button id="mobileToggle" class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1>Tell stories with light.</h1>
+          <p>We photograph events, teach young creators via live workshops, and help you build a visual voice.</p>
+          <div class="hero-cta">
+            <a href="#work" class="btn">See Our Work</a>
+            <a href="#workshop" class="btn btn-outline">Join Workshop — $15</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&auto=format&fit=crop&q=80" alt="Studio hero">
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="container about">
+      <div class="split">
+        <div>
+          <h2>About Creative Studio</h2>
+          <p>We help new photographers learn practical skills — camera basics, lighting, composition, and online presentation through Zoom workshops and hands-on sessions.</p>
+          <ul class="features">
+            <li>Event photography</li>
+            <li>Online 3-day workshops</li>
+            <li>Portfolio building & mentorship</li>
+          </ul>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1000&auto=format&fit=crop&q=80" alt="About">
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="container work">
+      <h2>My Work</h2>
+      <p class="muted">Selected shoots and event highlights</p>
+      <div class="gallery">
+        <!-- placeholders; replace with your images -->
+        <div class="card"><img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?w=800&auto=format&fit=crop&q=60" alt=""></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?w=800&auto=format&fit=crop&q=60" alt=""></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&auto=format&fit=crop&q=60" alt=""></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800&auto=format&fit=crop&q=60" alt=""></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1511765224389-37f0e77cf0eb?w=800&auto=format&fit=crop&q=60" alt=""></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1494526585095-c41746248156?w=800&auto=format&fit=crop&q=60" alt=""></div>
+      </div>
+    </section>
+
+    <section id="team" class="container team">
+      <h2>Meet the Team</h2>
+      <div class="team-grid">
+        <div class="member">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&auto=format&fit=crop&q=60" alt="">
+          <h3>Alex Morgan</h3>
+          <p>Lead Photographer & Instructor</p>
+        </div>
+        <div class="member">
+          <img src="https://images.unsplash.com/photo-1545996124-9d6b9776f8b9?w=600&auto=format&fit=crop&q=60" alt="">
+          <h3>Jordan Lee</h3>
+          <p>Events & Production</p>
+        </div>
+        <div class="member">
+          <img src="https://images.unsplash.com/photo-1546456073-6712f79251bb?w=600&auto=format&fit=crop&q=60" alt="">
+          <h3>Sam Patel</h3>
+          <p>Community Manager</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="workshop" class="container workshop">
+      <div class="workshop-card">
+        <h2>3-day Photography Workshop — $15</h2>
+        <p>Learn camera basics, editing, and how to shoot events for social platforms. Small groups, interactive assignments, live feedback.</p>
+        <form id="signupForm">
+          <div class="form-row">
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+          </div>
+          <div class="form-row">
+            <select id="ticketQty" name="qty" aria-label="Quantity">
+              <option value="1">1 student — $15</option>
+              <option value="2">2 students — $30</option>
+              <option value="3">3 students — $45</option>
+            </select>
+            <button type="submit" class="btn">Register</button>
+          </div>
+          <p class="muted small">We'll email the Zoom link after payment. (This demo doesn't process payments.)</p>
+        </form>
+      </div>
+    </section>
+
+    <section id="contact" class="container contact">
+      <h2>Contact</h2>
+      <p class="muted">For bookings, email us at <a href="mailto:hello@creativestudio.example">hello@creativestudio.example</a> or use the form below.</p>
+      <form id="contactForm" class="contact-form">
+        <input type="text" placeholder="Your name" required>
+        <input type="email" placeholder="Your email" required>
+        <textarea placeholder="Message" rows="5" required></textarea>
+        <button class="btn" type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p>© <span id="year"></span> Creative Studio — Photography & Workshops</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Twitter">TW</a>
+          <a href="#" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

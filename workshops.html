@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Clicks Workshops</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/Creative clicks logo.jpeg">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="index.html" class="brand" style="font-size:2rem;font-weight:700;color:#111;text-decoration:none;">Creative Clicks</a>
+        </div>
+        <nav class="header-center">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="photography.html">Photography</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="workshops.html" class="active">Workshops</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <a href="book.html" class="book-btn">Book Now</a>
+        </div>
+    </header>
+    <main>
+        <section class="section">
+            <h2>Workshops</h2>
+            <p>Join our 3-day online workshop for just $15 per student. We also host other workshops—prices may vary. All workshops are held via Zoom and are designed to teach young people the art of photography.</p>
+            <form id="workshopForm">
+                <label for="workshopType">Select Workshop:</label>
+                <select id="workshopType" name="workshopType" onchange="updateWorkshopPrice()">
+                    <option value="3day">3-Day Workshop ($15)</option>
+                    <option value="advanced">Advanced Workshop ($25)</option>
+                    <option value="editing">Photo Editing Workshop ($20)</option>
+                </select>
+                <label for="studentName">Your Name:</label>
+                <input type="text" id="studentName" name="studentName" required>
+                <label for="studentEmail">Email:</label>
+                <input type="email" id="studentEmail" name="studentEmail" required>
+                <div id="workshopPrice">Price: $15</div>
+                <div id="paypal-button-container"></div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Creative Clicks. All rights reserved.</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
