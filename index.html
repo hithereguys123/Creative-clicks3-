@@ -1,41 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-                // Loader logic for all links and buttons
-                let loaderTimeout;
-                function showLoader() {
-                    clearTimeout(loaderTimeout);
-                    document.getElementById('banterLoader').classList.add('active');
-                }
-                function hideLoader() {
-                    loaderTimeout = setTimeout(function() {
-                        document.getElementById('banterLoader').classList.remove('active');
-                    }, 2000);
-                }
-                document.querySelectorAll('a, button').forEach(function(el) {
-                    el.addEventListener('click', function(e) {
-                        if (el.tagName === 'A' && el.getAttribute('href') && el.getAttribute('href').charAt(0) !== '#') {
-                            showLoader();
-                        } else if (el.tagName === 'BUTTON') {
-                            showLoader();
-                        }
-                    });
-                });
-                window.addEventListener('pageshow', hideLoader);
-
-                // Show loader for 3 seconds on page refresh
-                window.addEventListener('DOMContentLoaded', function() {
-                    document.getElementById('banterLoader').classList.add('active');
-                    setTimeout(function() {
-                        document.getElementById('banterLoader').classList.remove('active');
-                    }, 3000);
-                });
-                window.addEventListener('pageshow', function() {
-                    document.getElementById('banterLoader').classList.add('active');
-                    setTimeout(function() {
-                        document.getElementById('banterLoader').classList.remove('active');
-                    }, 3000);
-                });
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Clicks - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/Creative clicks logo.jpeg">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="index.html" class="brand">Creative Clicks</a>
+        </div>
+        <nav class="header-center">
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="photography.html">Photography</a></li>
                 <li><a href="videos.html">Videos</a></li>
                 <li><a href="workshops.html">Workshops</a></li>
             </ul>
@@ -71,10 +52,7 @@
                 <div class="team-member">
                     <img src="team1.jpg" alt="Team Member 1">
                     <h3>Akhil Mandaleeka</h3>
-                    <p>CEO
-                        Lead 
-                        Photographer
-                        Videographer</p>
+                    <p>CEO, Lead Photographer & Videographer</p>
                 </div>
                 <div class="team-member">
                     <img src="team2.jpg" alt="Team Member 2">
@@ -195,17 +173,17 @@
     </footer>
 
     <!-- Loader HTML -->
-            <div class="banter-loader" id="banterLoader">
-                <div class="banter-loader__box" style="background:#111;"></div>
-                <div class="banter-loader__box" style="background:#111;"></div>
-                <div class="banter-loader__box" style="background:#111;"></div>
-                <div class="banter-loader__box" style="background:#111;"></div>
-                <div class="banter-loader__box" style="background:#111;"></div>
-                <div class="banter-loader__box" style="background:#111;"></div>
-                <div class="banter-loader__box" style="background:#111;"></div>
-                <div class="banter-loader__box" style="background:#111;"></div>
-                <div class="banter-loader__box" style="background:#111;"></div>
-            </div>
+    <div class="banter-loader" id="banterLoader">
+        <div class="banter-loader__box" style="background:#111;"></div>
+        <div class="banter-loader__box" style="background:#111;"></div>
+        <div class="banter-loader__box" style="background:#111;"></div>
+        <div class="banter-loader__box" style="background:#111;"></div>
+        <div class="banter-loader__box" style="background:#111;"></div>
+        <div class="banter-loader__box" style="background:#111;"></div>
+        <div class="banter-loader__box" style="background:#111;"></div>
+        <div class="banter-loader__box" style="background:#111;"></div>
+        <div class="banter-loader__box" style="background:#111;"></div>
+    </div>
 
     <script>
         function updateTotalCost() {
@@ -221,32 +199,27 @@
         document.getElementById('hours').addEventListener('input', updateTotalCost);
         window.addEventListener('DOMContentLoaded', updateTotalCost);
 
-                // Loader logic for all links and buttons
-                let loaderTimeout;
-                function showLoader() {
-                    clearTimeout(loaderTimeout);
-                    document.getElementById('banterLoader').classList.add('active');
+        // Loader logic for all links and buttons
+        let loaderTimeout;
+        function showLoader() {
+            clearTimeout(loaderTimeout);
+            document.getElementById('banterLoader').classList.add('active');
+        }
+        function hideLoader() {
+            loaderTimeout = setTimeout(function() {
+                document.getElementById('banterLoader').classList.remove('active');
+            }, 2000);
+        }
+        document.querySelectorAll('a, button').forEach(function(el) {
+            el.addEventListener('click', function(e) {
+                if (el.tagName === 'A' && el.getAttribute('href') && el.getAttribute('href').charAt(0) !== '#') {
+                    showLoader();
+                } else if (el.tagName === 'BUTTON') {
+                    showLoader();
                 }
-                function hideLoader() {
-                    loaderTimeout = setTimeout(function() {
-                        document.getElementById('banterLoader').classList.remove('active');
-                    }, 2000);
-                }
-                document.querySelectorAll('a, button').forEach(function(el) {
-                    el.addEventListener('click', function(e) {
-                        if (el.tagName === 'A' && el.getAttribute('href') && el.getAttribute('href').charAt(0) !== '#') {
-                            showLoader();
-                        } else if (el.tagName === 'BUTTON') {
-                            showLoader();
-                        }
-                    });
-                });
-                window.addEventListener('pageshow', hideLoader);
+            });
+        });
+        window.addEventListener('pageshow', hideLoader);
     </script>
 </body>
 </html>
-
-
-
-
-
