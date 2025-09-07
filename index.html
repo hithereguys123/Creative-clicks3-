@@ -108,36 +108,10 @@
         <!-- Book Event -->
         <section id="book" class="book-section">
             <h1 class="book-title">Book Our Services</h1>
-            <p class="book-subtitle">Let's capture your special event. Fill out the form below to get a quote and check our availability.</p>
-            <div class="book-card">
-                <form id="bookingForm" action="https://formspree.io/f/xwpnnlpw" method="POST">
-                    <h2 class="form-title">Booking Details</h2>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="clientName">Full Name</label>
-                            <input type="text" id="clientName" name="Name" placeholder="John Doe" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="clientEmail">Email Address</label>
-                            <input type="email" id="clientEmail" name="Email" placeholder="you@example.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="clientPhone">Phone Number</label>
-                            <input type="tel" id="clientPhone" name="Phone" placeholder="(123) 456-7890">
-                        </div>
-                        <div class="form-group">
-                            <label for="eventType">Event Type</label>
-                            <select id="eventType" name="Event Type" required>
-                                <option value="" disabled selected>Select an event type</option>
-                                <option value="Wedding">Wedding</option>
-                                <option value="Corporate">Corporate Event</option>
-                                <option value="Portrait">Portrait Session</option>
-                                <option value="Family Photoshoot">Family Photoshoot</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="eventDate">Event Date</label>
+            <p class="book-subtitle">Let's capture your special event. Click below to book and check our availability.</p>
+            <div class="book-card" style="text-align:center;">
+                <a href="book.html" class="book-btn" style="font-size:1.3em;padding:1em 3em;display:inline-block;margin-top:2em;">Book an Event</a>
+            </div>
                             <input type="date" id="eventDate" name="Event Date" required>
                         </div>
                         <div class="form-group">
