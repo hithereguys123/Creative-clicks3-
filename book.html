@@ -90,6 +90,17 @@
     <footer>
         <p>&copy; 2025 Creative Clicks. All rights reserved.</p>
     </footer>
+    <div class="banter-loader" id="banterLoader">
+      <div class="banter-loader__box"></div>
+      <div class="banter-loader__box"></div>
+      <div class="banter-loader__box"></div>
+      <div class="banter-loader__box"></div>
+      <div class="banter-loader__box"></div>
+      <div class="banter-loader__box"></div>
+      <div class="banter-loader__box"></div>
+      <div class="banter-loader__box"></div>
+      <div class="banter-loader__box"></div>
+    </div>
     <script src="main.js"></script>
     <script>
     function updateTotalCost() {
@@ -104,6 +115,24 @@
     document.getElementById('service').addEventListener('change', updateTotalCost);
     document.getElementById('hours').addEventListener('input', updateTotalCost);
     window.addEventListener('DOMContentLoaded', updateTotalCost);
+
+    // Loader logic for all links and buttons
+    function showLoader() {
+      document.getElementById('banterLoader').classList.add('active');
+    }
+    function hideLoader() {
+      document.getElementById('banterLoader').classList.remove('active');
+    }
+    document.querySelectorAll('a, button').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        if (el.tagName === 'A' && el.getAttribute('href') && el.getAttribute('href').charAt(0) !== '#') {
+          showLoader();
+        } else if (el.tagName === 'BUTTON') {
+          showLoader();
+        }
+      });
+    });
+    window.addEventListener('pageshow', hideLoader);
     </script>
 </body>
 </html>
