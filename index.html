@@ -177,17 +177,17 @@
     </footer>
 
     <!-- Loader HTML -->
-    <div class="banter-loader" id="banterLoader">
-      <div class="banter-loader__box"></div>
-      <div class="banter-loader__box"></div>
-      <div class="banter-loader__box"></div>
-      <div class="banter-loader__box"></div>
-      <div class="banter-loader__box"></div>
-      <div class="banter-loader__box"></div>
-      <div class="banter-loader__box"></div>
-      <div class="banter-loader__box"></div>
-      <div class="banter-loader__box"></div>
-    </div>
+            <div class="banter-loader" id="banterLoader">
+                <div class="banter-loader__box" style="background:#111;"></div>
+                <div class="banter-loader__box" style="background:#111;"></div>
+                <div class="banter-loader__box" style="background:#111;"></div>
+                <div class="banter-loader__box" style="background:#111;"></div>
+                <div class="banter-loader__box" style="background:#111;"></div>
+                <div class="banter-loader__box" style="background:#111;"></div>
+                <div class="banter-loader__box" style="background:#111;"></div>
+                <div class="banter-loader__box" style="background:#111;"></div>
+                <div class="banter-loader__box" style="background:#111;"></div>
+            </div>
 
     <script>
         function updateTotalCost() {
@@ -203,23 +203,27 @@
         document.getElementById('hours').addEventListener('input', updateTotalCost);
         window.addEventListener('DOMContentLoaded', updateTotalCost);
 
-        // Loader logic for all links and buttons
-        function showLoader() {
-          document.getElementById('banterLoader').classList.add('active');
-        }
-        function hideLoader() {
-          document.getElementById('banterLoader').classList.remove('active');
-        }
-        document.querySelectorAll('a, button').forEach(function(el) {
-          el.addEventListener('click', function(e) {
-            if (el.tagName === 'A' && el.getAttribute('href') && el.getAttribute('href').charAt(0) !== '#') {
-              showLoader();
-            } else if (el.tagName === 'BUTTON') {
-              showLoader();
-            }
-          });
-        });
-        window.addEventListener('pageshow', hideLoader);
+                // Loader logic for all links and buttons
+                let loaderTimeout;
+                function showLoader() {
+                    clearTimeout(loaderTimeout);
+                    document.getElementById('banterLoader').classList.add('active');
+                }
+                function hideLoader() {
+                    loaderTimeout = setTimeout(function() {
+                        document.getElementById('banterLoader').classList.remove('active');
+                    }, 2000);
+                }
+                document.querySelectorAll('a, button').forEach(function(el) {
+                    el.addEventListener('click', function(e) {
+                        if (el.tagName === 'A' && el.getAttribute('href') && el.getAttribute('href').charAt(0) !== '#') {
+                            showLoader();
+                        } else if (el.tagName === 'BUTTON') {
+                            showLoader();
+                        }
+                    });
+                });
+                window.addEventListener('pageshow', hideLoader);
     </script>
 </body>
 </html>
