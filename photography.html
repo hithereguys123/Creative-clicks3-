@@ -144,41 +144,6 @@
         }
         
         .stack {
-                        // Loader logic for all links and buttons
-                        let loaderTimeout;
-                        function showLoader() {
-                            clearTimeout(loaderTimeout);
-                            document.getElementById('banterLoader').classList.add('active');
-                        }
-                        function hideLoader() {
-                            loaderTimeout = setTimeout(function() {
-                                document.getElementById('banterLoader').classList.remove('active');
-                            }, 2000);
-                        }
-                        document.querySelectorAll('a, button').forEach(function(el) {
-                            el.addEventListener('click', function(e) {
-                                if (el.tagName === 'A' && el.getAttribute('href') && el.getAttribute('href').charAt(0) !== '#') {
-                                    showLoader();
-                                } else if (el.tagName === 'BUTTON') {
-                                    showLoader();
-                                }
-                            });
-                        });
-                        window.addEventListener('pageshow', hideLoader);
-
-                        // Show loader for 3 seconds on page refresh
-                        window.addEventListener('DOMContentLoaded', function() {
-                            document.getElementById('banterLoader').classList.add('active');
-                            setTimeout(function() {
-                                document.getElementById('banterLoader').classList.remove('active');
-                            }, 3000);
-                        });
-                        window.addEventListener('pageshow', function() {
-                            document.getElementById('banterLoader').classList.add('active');
-                            setTimeout(function() {
-                                document.getElementById('banterLoader').classList.remove('active');
-                            }, 3000);
-                        });
             background: #000;
         }
         
@@ -620,23 +585,50 @@
             setInterval(nextCard, 8000);
         });
         
-        // Loader logic for all links and buttons
-        function showLoader() {
-          document.getElementById('banterLoader').classList.add('active');
-        }
-        function hideLoader() {
-          document.getElementById('banterLoader').classList.remove('active');
-        }
-        document.querySelectorAll('a, button').forEach(function(el) {
-          el.addEventListener('click', function(e) {
-            if (el.tagName === 'A' && el.getAttribute('href') && el.getAttribute('href').charAt(0) !== '#') {
-              showLoader();
-            } else if (el.tagName === 'BUTTON') {
-              showLoader();
+        // Consolidated loader logic for clicks and refreshes
+        (function() {
+            let loaderTimeout;
+            function showLoader() {
+                clearTimeout(loaderTimeout);
+                const el = document.getElementById('banterLoader');
+                if (el) el.classList.add('active');
             }
-          });
-        });
-        window.addEventListener('pageshow', hideLoader);
+            function hideLoaderDelayed() {
+                loaderTimeout = setTimeout(function() {
+                    const el = document.getElementById('banterLoader');
+                    if (el) el.classList.remove('active');
+                }, 2000); // ensure at least 2s visible after navigation
+            }
+
+            // Show loader for navigation clicks on links/buttons
+            document.querySelectorAll('a, button').forEach(function(el) {
+                el.addEventListener('click', function(e) {
+                    if (el.tagName === 'A' && el.getAttribute('href') && el.getAttribute('href').charAt(0) !== '#') {
+                        showLoader();
+                    } else if (el.tagName === 'BUTTON') {
+                        showLoader();
+                    }
+                });
+            });
+
+            // Hide with delay when page becomes visible (navigation)
+            window.addEventListener('pageshow', hideLoaderDelayed);
+
+            // On full load or refresh, play loader for 3 seconds
+            function playOnLoad() {
+                const el = document.getElementById('banterLoader');
+                if (!el) return;
+                el.classList.add('active');
+                setTimeout(function() {
+                    el.classList.remove('active');
+                }, 3000);
+            }
+            window.addEventListener('DOMContentLoaded', playOnLoad);
+            window.addEventListener('pageshow', function(e) {
+                // pageshow may fire on back/forward cache; treat as refresh too
+                playOnLoad();
+            });
+        })();
     </script>
 </body>
 </html>
