@@ -144,27 +144,41 @@
         }
         
         .stack {
-            width: 80%;
-            max-width: 800px;
-            position: relative;
-            margin: 0 auto;
-            height: 70vh;
-            max-height: 600px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .photo-card {
-            position: absolute;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            transition: all 0.6s ease;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+                        // Loader logic for all links and buttons
+                        let loaderTimeout;
+                        function showLoader() {
+                            clearTimeout(loaderTimeout);
+                            document.getElementById('banterLoader').classList.add('active');
+                        }
+                        function hideLoader() {
+                            loaderTimeout = setTimeout(function() {
+                                document.getElementById('banterLoader').classList.remove('active');
+                            }, 2000);
+                        }
+                        document.querySelectorAll('a, button').forEach(function(el) {
+                            el.addEventListener('click', function(e) {
+                                if (el.tagName === 'A' && el.getAttribute('href') && el.getAttribute('href').charAt(0) !== '#') {
+                                    showLoader();
+                                } else if (el.tagName === 'BUTTON') {
+                                    showLoader();
+                                }
+                            });
+                        });
+                        window.addEventListener('pageshow', hideLoader);
+
+                        // Show loader for 3 seconds on page refresh
+                        window.addEventListener('DOMContentLoaded', function() {
+                            document.getElementById('banterLoader').classList.add('active');
+                            setTimeout(function() {
+                                document.getElementById('banterLoader').classList.remove('active');
+                            }, 3000);
+                        });
+                        window.addEventListener('pageshow', function() {
+                            document.getElementById('banterLoader').classList.add('active');
+                            setTimeout(function() {
+                                document.getElementById('banterLoader').classList.remove('active');
+                            }, 3000);
+                        });
             background: #000;
         }
         
