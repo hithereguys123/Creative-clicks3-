@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creative Clicks Workshops</title>
+    <title>Workshops - Creative Clicks</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/Creative clicks logo.jpeg">
 </head>
 <body>
     <header>
         <div class="header-left">
-            <a href="index.html" class="brand" style="font-size:2rem;font-weight:700;color:#111;text-decoration:none;">Creative Clicks</a>
+            <a href="index.html" class="brand">Creative Clicks</a>
         </div>
         <nav class="header-center">
             <ul>
@@ -27,75 +27,93 @@
     </header>
     <main>
         <section class="section">
-            <h2>Workshops</h2>
-            <p>Join our 3-day online workshop for just $15 per student. We also host other workshops—prices may vary. All workshops are held via Zoom and are designed to teach young people the art of photography.</p>
-            <form id="workshopForm">
+            <h1>Workshops</h1>
+            <p>Join our 3-day online workshop for just $15 per student. We also host other workshops—prices may vary.</p>
+            <form id="workshopForm" action="https://formspree.io/f/meollazo" method="POST">
                 <label for="workshopType">Select Workshop:</label>
-                <select id="workshopType" name="workshopType" onchange="updateWorkshopPrice()">
-                    <option value="3day">3-Day Workshop ($15)</option>
-                    <option value="advanced">Advanced Workshop ($25)</option>
-                    <option value="editing">Photo Editing Workshop ($20)</option>
+                <select id="workshopType" name="Workshop Type" required>
+                    <option value="3-Day Workshop ($15)">3-Day Workshop ($15)</option>
+                    <option value="Advanced Workshop ($25)">Advanced Workshop ($25)</option>
+                    <option value="Photo Editing Workshop ($20)">Photo Editing Workshop ($20)</option>
                 </select>
+
                 <label for="studentName">Your Name:</label>
-                <input type="text" id="studentName" name="studentName" required>
+                <input type="text" id="studentName" name="Name" required>
+
                 <label for="studentEmail">Email:</label>
-                <input type="email" id="studentEmail" name="studentEmail" required>
+                <input type="email" id="studentEmail" name="Email" required>
+
                 <div id="workshopPrice">Price: $15</div>
-                <div id="paypal-button-container"></div>
+                <input type="hidden" name="Total Price" id="workshopTotalPrice" value="15">
+
+                <button type="submit" class="form-btn">Book Workshop</button>
             </form>
         </section>
     </main>
     <footer>
-        <p>&copy; 2025 Creative Clicks. All rights reserved.</p>
+        <div class="footer-content">
+            <p>&copy; 2023 Creative Clicks. All rights reserved.</p>
+        </div>
     </footer>
     <div class="banter-loader" id="banterLoader">
-    <div class="banter-loader__box" style="background:#111;"></div>
-    <div class="banter-loader__box" style="background:#111;"></div>
-    <div class="banter-loader__box" style="background:#111;"></div>
-    <div class="banter-loader__box" style="background:#111;"></div>
-    <div class="banter-loader__box" style="background:#111;"></div>
-    <div class="banter-loader__box" style="background:#111;"></div>
-    <div class="banter-loader__box" style="background:#111;"></div>
-    <div class="banter-loader__box" style="background:#111;"></div>
-    <div class="banter-loader__box" style="background:#111;"></div>
+        <div class="banter-loader__box" style="background:#111;"></div>
+        <div class="banter-loader__box" style="background:#111;"></div>
+        <div class="banter-loader__box" style="background:#111;"></div>
+        <div class="banter-loader__box" style="background:#111;"></div>
+        <div class="banter-loader__box" style="background:#111;"></div>
+        <div class="banter-loader__box" style="background:#111;"></div>
+        <div class="banter-loader__box" style="background:#111;"></div>
+        <div class="banter-loader__box" style="background:#111;"></div>
+        <div class="banter-loader__box" style="background:#111;"></div>
     </div>
-    <script src="main.js"></script>
     <script>
-          // Loader logic for all links and buttons
-          let loaderTimeout;
-          function showLoader() {
+        // Workshop price calculation
+        document.getElementById('workshopType').addEventListener('change', function() {
+            const priceMap = {
+                "3-Day Workshop ($15)": 15,
+                "Advanced Workshop ($25)": 25,
+                "Photo Editing Workshop ($20)": 20
+            };
+            const price = priceMap[this.value] || 15;
+            document.getElementById('workshopPrice').textContent = `Price: $${price}`;
+            document.getElementById('workshopTotalPrice').value = price;
+        });
+
+        // Loader logic for all links and buttons
+        let loaderTimeout;
+        function showLoader() {
             clearTimeout(loaderTimeout);
             document.getElementById('banterLoader').classList.add('active');
-          }
-          function hideLoader() {
+        }
+        function hideLoader() {
             loaderTimeout = setTimeout(function() {
-              document.getElementById('banterLoader').classList.remove('active');
+                document.getElementById('banterLoader').classList.remove('active');
             }, 2000);
-          }
-          document.querySelectorAll('a, button').forEach(function(el) {
+        }
+        document.querySelectorAll('a, button').forEach(function(el) {
             el.addEventListener('click', function(e) {
-              if (el.tagName === 'A' && el.getAttribute('href') && el.getAttribute('href').charAt(0) !== '#') {
-                showLoader();
-              } else if (el.tagName === 'BUTTON') {
-                showLoader();
-              }
+                if (el.tagName === 'A' && el.getAttribute('href') && el.getAttribute('href').charAt(0) !== '#') {
+                    showLoader();
+                } else if (el.tagName === 'BUTTON') {
+                    showLoader();
+                }
             });
-          });
-          window.addEventListener('pageshow', hideLoader);
+        });
+        window.addEventListener('pageshow', hideLoader);
 
-          // Show loader for 3 seconds on page refresh
-          window.addEventListener('DOMContentLoaded', function() {
+        // Show loader for 3 seconds on page refresh
+        window.addEventListener('DOMContentLoaded', function() {
             document.getElementById('banterLoader').classList.add('active');
             setTimeout(function() {
-              document.getElementById('banterLoader').classList.remove('active');
+                document.getElementById('banterLoader').classList.remove('active');
             }, 3000);
-          });
-          window.addEventListener('pageshow', function() {
+        });
+        window.addEventListener('pageshow', function() {
             document.getElementById('banterLoader').classList.add('active');
             setTimeout(function() {
-              document.getElementById('banterLoader').classList.remove('active');
+                document.getElementById('banterLoader').classList.remove('active');
             }, 3000);
-          });
+        });
     </script>
 </body>
 </html>
