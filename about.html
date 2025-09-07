@@ -69,31 +69,43 @@
         <div class="banter-loader__box" style="background:#111;"></div>
     </div>
     <footer>
-                    // Loader logic for all links and buttons
-                    let loaderTimeout;
-                    function showLoader() {
-                        clearTimeout(loaderTimeout);
-                        document.getElementById('banterLoader').classList.add('active');
+        </footer>
+        <script>
+            // Loader logic for all links and buttons
+            let loaderTimeout;
+            function showLoader() {
+                clearTimeout(loaderTimeout);
+                document.getElementById('banterLoader').classList.add('active');
+            }
+            function hideLoader() {
+                loaderTimeout = setTimeout(function() {
+                    document.getElementById('banterLoader').classList.remove('active');
+                }, 2000);
+            }
+            document.querySelectorAll('a, button').forEach(function(el) {
+                el.addEventListener('click', function(e) {
+                    if (el.tagName === 'A' && el.getAttribute('href') && el.getAttribute('href').charAt(0) !== '#') {
+                        showLoader();
+                    } else if (el.tagName === 'BUTTON') {
+                        showLoader();
                     }
-                    function hideLoader() {
-                        loaderTimeout = setTimeout(function() {
-                            document.getElementById('banterLoader').classList.remove('active');
-                        }, 2000);
-                    }
-                    document.querySelectorAll('a, button').forEach(function(el) {
-                        el.addEventListener('click', function(e) {
-                            if (el.tagName === 'A' && el.getAttribute('href') && el.getAttribute('href').charAt(0) !== '#') {
-                                showLoader();
-                            } else if (el.tagName === 'BUTTON') {
-                                showLoader();
-                            }
-                        });
-                    });
-                    window.addEventListener('pageshow', hideLoader);
-        }
-      });
-    });
-    window.addEventListener('pageshow', hideLoader);
-    </script>
+                });
+            });
+            window.addEventListener('pageshow', hideLoader);
+
+            // Show loader for 3 seconds on page refresh
+            window.addEventListener('DOMContentLoaded', function() {
+                document.getElementById('banterLoader').classList.add('active');
+                setTimeout(function() {
+                    document.getElementById('banterLoader').classList.remove('active');
+                }, 3000);
+            });
+            window.addEventListener('pageshow', function() {
+                document.getElementById('banterLoader').classList.add('active');
+                setTimeout(function() {
+                    document.getElementById('banterLoader').classList.remove('active');
+                }, 3000);
+            });
+        </script>
 </body>
 </html>
