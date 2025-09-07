@@ -1,23 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Title removed as requested -->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="images/Creative clicks logo.jpeg">
-    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
-</head>
-<body>
-    <header>
-        <div class="header-left">
-            <a href="index.html" class="brand" style="font-size:2rem;font-weight:700;color:#111;text-decoration:none;">Creative Clicks</a>
-        </div>
-        <nav class="header-center">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="photography.html">Photography</a></li>
+                // Loader logic for all links and buttons
+                let loaderTimeout;
+                function showLoader() {
+                    clearTimeout(loaderTimeout);
+                    document.getElementById('banterLoader').classList.add('active');
+                }
+                function hideLoader() {
+                    loaderTimeout = setTimeout(function() {
+                        document.getElementById('banterLoader').classList.remove('active');
+                    }, 2000);
+                }
+                document.querySelectorAll('a, button').forEach(function(el) {
+                    el.addEventListener('click', function(e) {
+                        if (el.tagName === 'A' && el.getAttribute('href') && el.getAttribute('href').charAt(0) !== '#') {
+                            showLoader();
+                        } else if (el.tagName === 'BUTTON') {
+                            showLoader();
+                        }
+                    });
+                });
+                window.addEventListener('pageshow', hideLoader);
+
+                // Show loader for 3 seconds on page refresh
+                window.addEventListener('DOMContentLoaded', function() {
+                    document.getElementById('banterLoader').classList.add('active');
+                    setTimeout(function() {
+                        document.getElementById('banterLoader').classList.remove('active');
+                    }, 3000);
+                });
+                window.addEventListener('pageshow', function() {
+                    document.getElementById('banterLoader').classList.add('active');
+                    setTimeout(function() {
+                        document.getElementById('banterLoader').classList.remove('active');
+                    }, 3000);
+                });
                 <li><a href="videos.html">Videos</a></li>
                 <li><a href="workshops.html">Workshops</a></li>
             </ul>
