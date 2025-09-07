@@ -99,9 +99,9 @@
 }
 :root{
     --bg:#ffffff;
-    --card:#f7f7f7;
+    --card:#ffffff;
     --muted:#666;
-    --accent:#252525;
+    --accent:#111;
     --glass: rgba(255,255,255,0.04);
     --radius:14px;
     font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
@@ -110,7 +110,7 @@
 body{
   margin:0;
   color:#111;
-  background:linear-gradient(180deg,#ffffff 0%, #f7f7f7 100%);
+  background:#fff;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   line-height:1.45;
@@ -159,7 +159,7 @@ nav a {
     border-bottom: 2px solid transparent;
 }
 nav a:hover {
-    color: #111;
+    color: #444;
     border-bottom: 2px solid #111;
 }
 .section {
@@ -169,7 +169,7 @@ nav a:hover {
     background: #fff;
     color: #111;
     border-radius: 18px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     margin-bottom: 2rem;
 }
 h1, h2, h3 {
@@ -188,8 +188,8 @@ h1, h2, h3 {
     border-radius: 30px;
     font-weight: 600;
     text-decoration: none;
-    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 .cta:hover {
     background: #fff;
