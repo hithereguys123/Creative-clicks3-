@@ -489,30 +489,31 @@ input::placeholder, textarea::placeholder{color:rgba(230,238,246,0.45)}
 
 /* booking section */
 .book-section {
-    background: #fff;
-    padding: 4rem 0 6rem 0;
+    background: transparent;
+    padding: 4rem 2rem;
     text-align: center;
 }
 .book-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 800;
     color: #111;
     margin-bottom: 1rem;
     letter-spacing: 2px;
 }
 .book-subtitle {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: #444;
     margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
     font-weight: 400;
 }
 .book-card {
-    background: #fff;
-    max-width: 700px;
+    max-width: 500px;
     margin: 0 auto;
     border-radius: 18px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-    padding: 2.5rem 2rem;
+    padding: 0;
     text-align: left;
 }
 .form-title {
