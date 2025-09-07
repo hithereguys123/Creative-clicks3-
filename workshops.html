@@ -82,6 +82,20 @@
             });
           });
           window.addEventListener('pageshow', hideLoader);
+
+          // Show loader for 3 seconds on page refresh
+          window.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('banterLoader').classList.add('active');
+            setTimeout(function() {
+              document.getElementById('banterLoader').classList.remove('active');
+            }, 3000);
+          });
+          window.addEventListener('pageshow', function() {
+            document.getElementById('banterLoader').classList.add('active');
+            setTimeout(function() {
+              document.getElementById('banterLoader').classList.remove('active');
+            }, 3000);
+          });
     </script>
 </body>
 </html>
